@@ -34,7 +34,6 @@ These were not in the source brief, so they are intentionally empty:
 
 | Item | Where |
 |---|---|
-| Project screenshots | `project.image` for StudyKarle, CampusBus, and StudyCanvas (put files in `public/project-images/`); cards show the title until then |
 | StudyKarle "50+ users" figure | Omitted. Add only after verifying analytics or records |
 | Academic results (SGPA / percentage) | Omitted. Add only after verifying against marksheets |
 | Experience dates | `site.experience[].period` is blank until confirmed |
