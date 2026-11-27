@@ -32,7 +32,7 @@ export function SectionHeader({
         <span className="absolute bottom-0 left-0 h-[3px] w-[3px] -translate-x-1/2 translate-y-1/2 bg-[var(--fg)] opacity-40 z-20" />
         <span className="absolute bottom-0 right-0 h-[3px] w-[3px] translate-x-1/2 translate-y-1/2 bg-[var(--fg)] opacity-40 z-20" />
 
-        <div className="flex items-center justify-between gap-4 px-6 py-3 sm:px-8 w-full">
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 py-3 sm:px-8 w-full">
           <h2 className="font-serif text-2xl tracking-wide text-[var(--fg)]">
             {title}
           </h2>

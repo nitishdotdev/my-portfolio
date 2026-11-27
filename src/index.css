@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Aileron's Semibold and Black match the reference's regular and emphasis metrics. */
+@font-face {
+  font-family: 'Aileron';
+  src: url('/fonts/aileron/Aileron-SemiBold.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('/fonts/aileron/Aileron-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ------------------------------------------------------------------ */
 /*  Onyx Theme CSS Variables                                          */
 /* ------------------------------------------------------------------ */
@@ -16,7 +33,7 @@
   --card: #101010;
   --chip: #161616;
   --font-serif: 'Instrument Serif', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Aileron', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
