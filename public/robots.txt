@@ -1,0 +1,70 @@
+# nitishdotdev robots policy
+#
+# Allow search and retrieval. Restrict the dedicated training crawlers listed
+# below and allow Google-Extended for its documented training and grounding uses.
+#
+# robots.txt controls crawling, not what a system does with content after it has
+# been fetched. Search engines and AI systems may ignore or interpret these rules
+# differently. Permissions here do not guarantee rankings, citations or answers.
+#
+# Crawler purposes were checked against each operator's documentation:
+#   OpenAI:    https://developers.openai.com/api/docs/bots
+#   Anthropic: https://support.claude.com/en/articles/8896518-anthropic-crawlers
+#   Apple:     https://support.apple.com/en-ae/119829
+#   Google:    Google-Extended documentation (Google's common crawlers list)
+#
+# Explicit decisions:
+#   Training crawlers, disallowed: GPTBot (OpenAI foundation-model training),
+#     ClaudeBot (Anthropic training collection), Applebot-Extended (Apple
+#     Intelligence training; does not affect Siri or Spotlight).
+#   Google-Extended: allowed. It governs Gemini training AND grounding in
+#     Gemini Apps and Vertex AI, and the two cannot be separated. Disallowing it
+#     would also remove this site from Gemini retrieval. It has no effect on
+#     Google Search or AI Overviews, which use the Search Console generative AI
+#     control instead. This is a deliberate owner decision; see README.
+#   Search and retrieval crawlers: allowed.
+
+User-agent: *
+Allow: /
+
+# Training crawlers: opt out of model training only.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+# Search indexing and AI search/retrieval crawlers, listed to document intent.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# User-initiated retrieval. Operators state that robots.txt rules may not apply
+# to these requests; listed for transparency only.
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+Sitemap: https://nitishdotdev.vercel.app/sitemap.xml

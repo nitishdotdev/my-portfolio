@@ -32,6 +32,7 @@ export function Projects({ isSearchable = false }: { isSearchable?: boolean }) {
   return (
     <div id="projects">
       <SectionHeader
+        as={isSearchable ? "h1" : "h2"}
         title="Projects"
         aside={
           !isSearchable ? (

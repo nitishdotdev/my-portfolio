@@ -1,0 +1,27 @@
+# Nitish Kumar Singh (nitishdotdev)
+
+> Nitish Kumar Singh, known online as nitishdotdev, is a full-stack developer and product builder based in Delhi, India. He builds web products with React, TypeScript, Node.js, Express.js and PostgreSQL, and is a B.Tech CSE (AI & ML) student.
+
+Canonical portfolio: https://nitishdotdev.vercel.app/
+
+## Pages
+
+- [Home](https://nitishdotdev.vercel.app/): introduction, skills, and featured projects
+- [Projects](https://nitishdotdev.vercel.app/projects): all projects with descriptions and links
+- [Experience](https://nitishdotdev.vercel.app/experience): independent product-building work
+- [Contact](https://nitishdotdev.vercel.app/contact): how to get in touch
+
+## Projects
+
+- StudyKarle: an education resource platform for engineering students. It organizes notes, previous-year questions, solutions, assignments and tutorials by year, semester, subject and unit. Live: https://studykarle.me. Source: https://github.com/nitishdotdev/StudyKarle. Stack: React, Vite, Node.js, Express.js, PostgreSQL, Knex.js.
+- CampusBus: a campus transport platform in development, designed to serve multiple colleges from one platform, with student, driver and admin roles. Source: https://github.com/nitishdotdev/CampusBus. Stack: Node.js, PostgreSQL.
+- StudyCanvas: an earlier digital note-writing web app and the first step toward StudyKarle. Live: https://studycanvas.me.
+
+## Skills
+
+React, TypeScript, JavaScript, Node.js, Express.js, PostgreSQL, REST APIs, Java, Data Structures and Algorithms.
+
+## Public profiles
+
+- GitHub: https://github.com/nitishdotdev
+- LinkedIn: https://www.linkedin.com/in/nitishdotdev/

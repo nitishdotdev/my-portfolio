@@ -46,7 +46,8 @@ export const site = {
   name: "Nitish Kumar Singh",
   firstName: "Nitish",
   initials: "NKS",
-  url: "",
+  // Production canonical base. Change this one value when moving to a custom domain.
+  url: "https://nitishdotdev.vercel.app",
   role: "Full-Stack Developer · Backend Engineer · Clean Code Advocate",
   location: "Delhi, India",
   timezone: "Asia/Kolkata",
@@ -135,24 +136,6 @@ export const site = {
       period: "",
       blurb:
         "Building and iterating on web products, including an education resource platform and a campus transportation platform. Working across frontend interfaces, backend APIs, authentication, PostgreSQL data models, deployment, and production debugging.",
-    },
-  ] as Job[],
-
-  // Campus roles and team work, shown below the independent projects.
-  collaboration: [
-    {
-      company: "RKGIT",
-      role: "Class CR / Assignment Coordinator",
-      period: "",
-      blurb: "Served as class representative and assignment coordinator.",
-    },
-    {
-      company: "Binary Hacks 4.0 · RKGIT",
-      role: "Team Leader",
-      period: "22–24 Sep 2026",
-      blurb:
-        "Led a team to develop ArthaSetu, a concept exploring micro-investment access for gig workers.",
-      url: "https://github.com/goyaldaksh284-crypto/ArthaSetu",
     },
   ] as Job[],
 

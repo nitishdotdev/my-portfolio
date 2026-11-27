@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "verify:seo": "node scripts/verify-seo.mjs",
+    "verify:seo:dist": "node scripts/verify-seo.mjs --dist",
+    "test": "node --test scripts/verify-seo.test.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

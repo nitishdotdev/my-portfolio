@@ -10,7 +10,7 @@ const GRID_COLS: Record<number, string> = {
   4: "sm:grid-cols-4",
 };
 
-export function Contact() {
+export function Contact({ isPage = false }: { isPage?: boolean }) {
   // Only links that are configured are shown; unverified contact details stay hidden.
   const contactLinks = [
     { label: "GitHub", href: site.socials.github, Icon: GitHubIcon },
@@ -23,7 +23,7 @@ export function Contact() {
 
   return (
     <div id="contact">
-      <SectionHeader title="Contact" />
+      <SectionHeader as={isPage ? "h1" : "h2"} title="Contact" />
       <Shell>
         <div className={`grid grid-cols-2 ${cols} border-b border-[var(--line)] sm:border-b-0`}>
           {contactLinks.map((l, idx) => {
