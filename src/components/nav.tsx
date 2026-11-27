@@ -22,12 +22,24 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--bg)]/85 backdrop-blur-md">
       <Shell className="flex items-center justify-between px-6 py-3 sm:px-8">
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           onClick={() => setMobileMenuOpen(false)}
-          className="font-serif text-xl tracking-wide text-[var(--fg)] hover:opacity-80 transition-opacity"
+          aria-label={`${site.name} — home`}
+          className="flex items-center gap-2.5 font-serif text-xl tracking-wide text-[var(--fg)] hover:opacity-80 transition-opacity"
         >
-          {site.firstName}
+          {site.profileImages[0] ? (
+            <img
+              src={site.profileImages[0]}
+              alt=""
+              width={32}
+              height={32}
+              decoding="async"
+              className="size-8 shrink-0 rounded-lg border border-[var(--line)] bg-[var(--chip)] object-cover"
+            />
+          ) : (
+            site.firstName
+          )}
         </Link>
 
         {/* Desktop Navigation */}
