@@ -38,6 +38,7 @@ export function Hero({ onOpenPalette }: { onOpenPalette?: () => void }) {
               src={site.bannerImage}
               alt=""
               loading="eager"
+              fetchPriority="high"
               decoding="async"
               className="w-full h-full object-cover object-center opacity-90 transition-opacity duration-300 hover:opacity-100"
             />
@@ -55,8 +56,8 @@ export function Hero({ onOpenPalette }: { onOpenPalette?: () => void }) {
       {/* Profile Avatar & Identity */}
       <Shell className="px-6 py-6 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left gap-6 justify-between"
         >
@@ -111,7 +112,7 @@ export function Hero({ onOpenPalette }: { onOpenPalette?: () => void }) {
               </h1>
               {headlines.length > 0 && (
                 <div className="h-[20px] overflow-hidden mt-1">
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence mode="wait" initial={false}>
                     <motion.p
                       key={headlineIndex}
                       initial={{ y: 12, opacity: 0 }}

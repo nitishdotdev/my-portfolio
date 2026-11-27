@@ -108,7 +108,7 @@ export function CommandPalette({
       id: "nav-experience",
       category: "navigation",
       title: "Go to Experience",
-      subtitle: "Independent projects & campus collaboration",
+      subtitle: "Independent projects",
       icon: <Briefcase size={16} />,
       action: () => {
         navigate("/experience");

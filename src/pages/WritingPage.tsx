@@ -30,7 +30,7 @@ export function WritingPage() {
           <Reveal delay={0.1}>
             <div className="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-8 text-center">
               <BookOpen size={32} className="text-[var(--soft)] mx-auto mb-3" />
-              <h3 className="font-serif text-2xl text-[var(--fg)]">No articles yet</h3>
+              <h2 className="font-serif text-2xl text-[var(--fg)]">No articles yet</h2>
               <p className="mt-2 text-[var(--muted)] text-sm max-w-md mx-auto">
                 Published articles will appear here.
               </p>

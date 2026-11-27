@@ -6,14 +6,17 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const QUOTES = site.quotes;
+declare const __BUILD_YEAR__: number;
 
 export function Footer() {
   const [localTime, setLocalTime] = useState<string>("");
+  const [year, setYear] = useState(__BUILD_YEAR__);
   const [quoteIndex, setQuoteIndex] = useState(0);
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
+      setYear(now.getFullYear());
       const options: Intl.DateTimeFormatOptions = {
         timeZone: "Asia/Kolkata",
         hour: "2-digit",
@@ -105,7 +108,7 @@ export function Footer() {
             </a>
           </p>
           <p className="mt-1.5 font-mono text-[12px] text-[var(--soft)]">
-            © {new Date().getFullYear()} All rights reserved.
+            © {year} All rights reserved.
           </p>
           <p className="mt-2.5 flex items-center justify-center gap-2 font-mono text-[12px] text-[var(--soft)]">
             <span className="relative flex size-2">

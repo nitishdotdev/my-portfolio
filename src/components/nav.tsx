@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Shell } from "@/components/Layout";
+import { normalizePath } from "@/config/seo";
 import { site } from "@/config/site";
 import { useTheme } from "./theme-provider";
 import { Sun, Moon, Search, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
-  const { theme, toggleTheme } = useTheme();
-  const dark = theme === "dark";
+  const { toggleTheme } = useTheme();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -33,7 +33,7 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
         {/* Desktop Navigation */}
         <nav className="hidden sm:flex items-center gap-5 text-[13px] text-[var(--muted)]">
           {navLinks.map(({ label, path }) => {
-            const isActive = location.pathname === path;
+            const isActive = normalizePath(location.pathname) === path;
             return (
               <Link
                 key={path}
@@ -69,7 +69,8 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
             aria-label="Toggle theme"
             className="grid size-7 place-items-center rounded-full border border-[var(--line)] text-[var(--muted)] transition-all duration-300 hover:rotate-45 hover:text-[var(--fg)] cursor-pointer"
           >
-            {dark ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}
+            <Sun className="hidden size-3.5 dark:block" />
+            <Moon className="size-3.5 dark:hidden" />
           </button>
         </nav>
 
@@ -92,7 +93,8 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
             aria-label="Toggle theme"
             className="grid size-8 place-items-center rounded-full border border-[var(--line)] text-[var(--muted)] hover:text-[var(--fg)] cursor-pointer"
           >
-            {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+            <Sun className="hidden size-4 dark:block" />
+            <Moon className="size-4 dark:hidden" />
           </button>
 
           <button
@@ -118,7 +120,7 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
           >
             <div className="px-6 py-6 space-y-4 flex flex-col font-serif text-lg bg-[var(--bg)]">
               {navLinks.map(({ label, path }) => {
-                const isActive = location.pathname === path;
+                const isActive = normalizePath(location.pathname) === path;
                 return (
                   <Link
                     key={path}

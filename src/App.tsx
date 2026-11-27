@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import { ThemeProvider } from "@/components/theme-provider";
 import { VisitorProvider } from "@/context/VisitorContext";
@@ -18,7 +18,7 @@ import { GithubActivity } from "@/sections/GithubActivity";
 import { CommandPalette } from "@/components/command-palette";
 import { WritingPage } from "@/pages/WritingPage";
 import { Konami } from "@/components/konami";
-import { Analytics } from "@vercel/analytics/react";
+import { RouteSeo } from "@/components/route-seo";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -45,7 +45,7 @@ function MainLayout({ onOpenPalette }: { onOpenPalette: () => void }) {
       <About />
       <Contact />
       <Projects isSearchable={false} />
-      <Experience isDetailed={false} />
+      <Experience />
       <OpenSource />
       <TechStack />
       <Writing limit={4} />
@@ -87,11 +87,10 @@ export function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-    <ThemeProvider>
-      <VisitorProvider>
-        <BrowserRouter>
-          <Analytics />
+      <ThemeProvider>
+        <VisitorProvider>
           <ScrollToTop />
+          <RouteSeo />
           <Konami />
           <div className="min-h-screen bg-[var(--bg)] font-sans text-[var(--fg)] antialiased transition-colors duration-300 relative">
             <Nav onOpenPalette={() => setPaletteOpen(true)} />
@@ -100,17 +99,9 @@ export function App() {
             <main className="relative z-10">
               <Routes>
                 <Route path="/" element={<MainLayout onOpenPalette={() => setPaletteOpen(true)} />} />
-                <Route path="/projects" element={<Projects isSearchable={true} />} />
-                <Route
-                  path="/experience"
-                  element={
-                    <>
-                      <Experience isDetailed={true} />
-                      <OpenSource />
-                    </>
-                  }
-                />
-                <Route path="/contact" element={<Contact />} />
+                <Route path="/projects" element={<Projects isSearchable />} />
+                <Route path="/experience" element={<><Experience isPage /><OpenSource /></>} />
+                <Route path="/contact" element={<Contact isPage />} />
                 <Route path="/writing" element={<WritingPage />} />
               </Routes>
             </main>
@@ -118,9 +109,8 @@ export function App() {
             <Footer />
             <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
           </div>
-        </BrowserRouter>
-      </VisitorProvider>
-    </ThemeProvider>
+        </VisitorProvider>
+      </ThemeProvider>
     </MotionConfig>
   );
 }

@@ -37,32 +37,18 @@ function Entry({ item, index }: { item: Job; index: number }) {
   );
 }
 
-export function Experience(_props: { isDetailed?: boolean }) {
+export function Experience({ isPage = false }: { isPage?: boolean }) {
   const hasExperience = site.experience.length > 0;
-  const hasCollaboration = site.collaboration.length > 0;
 
-  if (!hasExperience && !hasCollaboration) return null;
+  if (!hasExperience) return null;
 
   return (
     <div id="experience">
-      <SectionHeader title={site.experienceTitle} />
+      <SectionHeader as={isPage ? "h1" : "h2"} title={site.experienceTitle} />
       <Shell>
         {site.experience.map((job, i) => (
           <Entry key={`${job.company}-${i}`} item={job} index={i} />
         ))}
-
-        {hasCollaboration && (
-          <div className={hasExperience ? "border-t border-[var(--line)]" : ""}>
-            <div className="px-6 pt-6 sm:px-8">
-              <span className="font-mono text-[10.5px] uppercase tracking-wider text-[var(--soft)] font-semibold">
-                Campus & Collaboration
-              </span>
-            </div>
-            {site.collaboration.map((item, i) => (
-              <Entry key={`${item.company}-${i}`} item={item} index={i} />
-            ))}
-          </div>
-        )}
       </Shell>
     </div>
   );
