@@ -94,7 +94,15 @@ export function Footer() {
       <div className="w-full border-t border-[var(--line)]">
         <Shell className="border-b-0 px-6 py-8 text-center sm:px-8">
           <p className="text-[14.5px] text-[var(--muted)]">
-            Designed &amp; Developed by <span className="font-semibold text-[var(--fg)]">{site.name}</span>
+            Designed &amp; Developed by{" "}
+            <a
+              href={site.socials.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[var(--fg)] underline-offset-4 decoration-[var(--soft)] hover:underline focus-visible:underline focus-visible:outline-none"
+            >
+              {site.name}
+            </a>
           </p>
           <p className="mt-1.5 font-mono text-[12px] text-[var(--soft)]">
             © {new Date().getFullYear()} All rights reserved.
