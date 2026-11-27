@@ -13,7 +13,6 @@ const CATEGORY_ICONS: Record<string, string> = {
   Backend: "lucide:server",
   Databases: "lucide:database",
   "DevOps & Tools": "lucide:terminal",
-  "Currently Learning": "lucide:graduation-cap",
 };
 
 const SKILL_ICONS: Record<string, string> = {

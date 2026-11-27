@@ -22,7 +22,7 @@ Almost all content lives in one file: **`src/config/site.ts`**.
 - `experience`, `collaboration`: independent work, campus roles, and hackathon entries
 - `projects`: project cards (`story` powers the "engineering details" drawer)
 - `skillGroups`: the Tech Stack grid, grouped by category
-- `socials`, `email`: contact links (empty values hide the related UI)
+- `socials`, `email`: contact links, including Instagram for the footer name (empty values hide the related UI)
 - `writing`, `openSourceContributions`: leave empty to hide those sections
 - `github.username`: drives the GitHub activity heatmap
 
@@ -34,11 +34,7 @@ These were not in the source brief, so they are intentionally empty:
 
 | Item | Where |
 |---|---|
-| Public email | `site.email` (enables Mail link, footer CTA, and palette action) |
-| LinkedIn URL | `site.socials.linkedin` |
-| Résumé PDF | `site.socials.resume` (place the file in `public/`) |
-| Profile photo | `site.profileImages` (add to `public/` and list the path) |
-| Project screenshots | `project.image` (add to `public/project-images/`); cards show the title until then |
+| Project screenshots | `project.image` for StudyKarle, CampusBus, and StudyCanvas (put files in `public/project-images/`); cards show the title until then |
 | StudyKarle "50+ users" figure | Omitted. Add only after verifying analytics or records |
 | Academic results (SGPA / percentage) | Omitted. Add only after verifying against marksheets |
 | Experience dates | `site.experience[].period` is blank until confirmed |

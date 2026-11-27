@@ -47,12 +47,12 @@ export const site = {
   firstName: "Nitish",
   initials: "NKS",
   url: "",
-  role: "Full Stack Developer · Product Builder · CSE (AI & ML)",
-  location: "Ghaziabad, India",
+  role: "Full-Stack Developer · Backend Engineer · Clean Code Advocate",
+  location: "Delhi, India",
   timezone: "Asia/Kolkata",
 
   // Leave empty until verified; the contact UI hides unset links.
-  email: "",
+  email: "nitishkumarsingh.cs@gmail.com",
 
   // Add image paths (e.g. "/profile.jpg") to enable the avatar switcher.
   // With none set, the hero shows the initials monogram.
@@ -62,42 +62,68 @@ export const site = {
   socialBannerImage: "/social-banner.png",
 
   headlines: [
-    "Full Stack Developer",
-    "Product Builder",
-    "CSE (AI & ML) Student",
+    "Full-Stack Developer",
+    "Backend Engineer",
+    "Clean Code Advocate",
   ],
 
-  about: [
-    "I am Nitish Kumar Singh, a Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning at RKGIT, Ghaziabad. I enjoy turning ideas into useful software: understanding a problem, building the product end to end, deploying it, and improving it based on how people actually use it.",
-    "My work spans modern web interfaces, backend APIs, authentication, relational databases, and deployment workflows. I have been building products such as StudyKarle, an education resource platform, and CampusBus, a college transportation platform. These projects have pushed me beyond writing isolated code into thinking about real users, permissions, reliability, product decisions, and maintenance.",
-    "I am continuing to strengthen my foundations in data structures and algorithms, backend engineering, system design, and AI/ML. I value practical execution, clean implementation, honest engineering, and products that deliver meaningful value without unnecessary cost.",
-    "I want to build products I'm proud to sell and would recommend to my family and friends, and keep them as affordable as possible.",
-  ],
+  about: {
+    intro:
+      "Hey, I'm Nitish — a second-year B.Tech CSE (AI & ML) student who loves turning ideas into practical, well-built products. I enjoy building, shipping and continuously improving software.",
+    points: [
+      {
+        lead: "I build real products.",
+        text: "I've built and shipped projects like StudyKarle and CampusBus, turning ideas into applications people can actually use.",
+      },
+      {
+        lead: "I enjoy the full stack.",
+        text: "From React and TypeScript to Node.js, Express and PostgreSQL, I love bringing different pieces together to build complete products.",
+      },
+      {
+        lead: "I care about good engineering.",
+        text: "Clean code, thoughtful design, solving problems and sweating the small details matter to me.",
+      },
+    ],
+    outro: "Always learning, building and looking for interesting problems to solve.",
+  },
 
   tldr: [
-    "Building StudyKarle & CampusBus",
+    "Building Products",
     "Stack: React · Node.js · PostgreSQL",
-    "B.Tech CSE (AI & ML), RKGIT",
+    "B.Tech CSE (AI & ML), RKGIT, Shipping consistently.",
     "Learning: System design · DSA · AI/ML",
   ],
 
   // Footer rotator: short personal statements.
   quotes: [
     {
-      text: "I build useful products, not just demos.",
-      author: "Nitish Kumar Singh",
+      text: "Stay hungry. Stay foolish.",
+      author: "Steve Jobs · Stanford Commencement, 2005",
     },
     {
-      text: "Build products we are proud to sell and would recommend to our family and friends, and make them available at the lowest prices possible.",
-      author: "Nitish Kumar Singh",
+      text: "The first principle is that you must not fool yourself—and you are the easiest person to fool.",
+      author: "Richard Feynman · Caltech Commencement, 1974",
+    },
+    {
+      text: "We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil.",
+      author: "Donald Knuth · Structured Programming with go to Statements, 1974",
+    },
+    {
+      text: "Talk is cheap. Show me the code.",
+      author: "Linus Torvalds · Linux kernel mailing list, 2000",
+    },
+    {
+      text: "Imagination is more important than knowledge.",
+      author: "Albert Einstein · Saturday Evening Post interview, 1929",
     },
   ],
 
   socials: {
     github: "https://github.com/nitishdotdev",
-    linkedin: "", // add exact profile URL once confirmed
+    linkedin: "https://www.linkedin.com/in/nitishdotdev/",
+    instagram: "https://www.instagram.com/nitishdotdev/",
     twitter: "", // add exact profile URL if active
-    resume: "", // add once a current résumé PDF exists
+    resume: "https://nitishdotdev.vercel.app", // per update request: links to the live portfolio
     medium: "", // no publishing platform confirmed yet
   },
 
@@ -116,7 +142,7 @@ export const site = {
   // Campus roles and team work, shown below the independent projects.
   collaboration: [
     {
-      company: "RKGIT, Ghaziabad",
+      company: "RKGIT",
       role: "Class CR / Assignment Coordinator",
       period: "",
       blurb: "Served as class representative and assignment coordinator.",
@@ -180,14 +206,12 @@ export const site = {
   ] as Project[],
 
   // Grouped skills shown in the Tech Stack section. Only defensible skills.
-  // The "Currently Learning" group is intentionally separate.
   skillGroups: {
-    Languages: ["JavaScript", "TypeScript", "Java", "C", "C++"],
+    Languages: ["JavaScript", "TypeScript", "Java", "C", "C++", "Python", "DSA", "AI/ML"],
     Frontend: ["React", "HTML", "CSS", "Tailwind CSS", "Bootstrap"],
-    Backend: ["Node.js", "Express.js", "REST APIs", "Authentication & Authorization", "Role-Based Access Control"],
+    Backend: ["Node.js", "Express.js", "REST APIs", "Authentication & Authorization", "Role-Based Access Control", "System Design"],
     Databases: ["PostgreSQL", "Neon", "Knex.js"],
-    "DevOps & Tools": ["Git", "GitHub", "Vercel", "Render", "Postman"],
-    "Currently Learning": ["Python", "System Design", "DSA", "AI/ML", "Production Reliability"],
+    "DevOps & Tools": ["Git", "GitHub", "Vercel", "Render", "Postman", "Production Reliability"],
   } as Record<string, string[]>,
 
   // Add posts as { title, summary, date, url, readingTime }.

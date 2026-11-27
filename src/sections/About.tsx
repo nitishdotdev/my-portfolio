@@ -7,19 +7,46 @@ export function About() {
     <div id="about">
       <SectionHeader title="About" />
       <Shell className="px-6 py-7 sm:px-8 space-y-4">
-        {site.about.map((para, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="flex gap-2 text-[14.5px] leading-relaxed text-[var(--muted)]"
-          >
-            <span className="text-[var(--soft)] font-mono">•</span>
-            <p>{para}</p>
-          </motion.div>
-        ))}
+        {/* Intro */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="text-[14.5px] leading-relaxed text-[var(--muted)]"
+        >
+          {site.about.intro}
+        </motion.p>
+
+        {/* Key points, each with a bold lead-in */}
+        <ul className="space-y-3">
+          {site.about.points.map((point, i) => (
+            <motion.li
+              key={point.lead}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="flex gap-2 text-[14.5px] leading-relaxed text-[var(--muted)]"
+            >
+              <span className="text-[var(--soft)] font-mono" aria-hidden="true">•</span>
+              <p>
+                <strong className="font-semibold text-[var(--fg)]">{point.lead}</strong>{" "}
+                {point.text}
+              </p>
+            </motion.li>
+          ))}
+        </ul>
+
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="text-[14.5px] leading-relaxed text-[var(--muted)]"
+        >
+          {site.about.outro}
+        </motion.p>
 
         {/* Developer Snapshot Cards */}
         <motion.div
