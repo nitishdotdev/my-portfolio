@@ -87,7 +87,7 @@ export const site = {
   },
 
   tldr: [
-    "Building Products",
+    "Building Products.",
     "Stack: React · Node.js · PostgreSQL",
     "Shipping consistently.",
     "Learning: System design · DSA · AI/ML",

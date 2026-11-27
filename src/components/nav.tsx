@@ -25,21 +25,9 @@ export function Nav({ onOpenPalette }: { onOpenPalette?: () => void }) {
         <Link
           to="/"
           onClick={() => setMobileMenuOpen(false)}
-          aria-label={`${site.name} — home`}
-          className="flex items-center gap-2.5 font-serif text-xl tracking-wide text-[var(--fg)] hover:opacity-80 transition-opacity"
+          className="font-serif text-xl tracking-wide text-[var(--fg)] hover:opacity-80 transition-opacity"
         >
-          {site.profileImages[0] ? (
-            <img
-              src={site.profileImages[0]}
-              alt=""
-              width={32}
-              height={32}
-              decoding="async"
-              className="size-8 shrink-0 rounded-lg border border-[var(--line)] bg-[var(--chip)] object-cover"
-            />
-          ) : (
-            site.firstName
-          )}
+          {site.firstName}
         </Link>
 
         {/* Desktop Navigation */}
