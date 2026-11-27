@@ -36,6 +36,8 @@ export function Hero({ onOpenPalette }: { onOpenPalette?: () => void }) {
           {site.bannerImage ? (
             <img
               src={site.bannerImage}
+              srcSet={site.bannerImageSources.join(", ")}
+              sizes="(min-width: 760px) 734px, (min-width: 640px) calc(100vw - 26px), calc(100vw - 18px)"
               alt=""
               loading="eager"
               fetchPriority="high"

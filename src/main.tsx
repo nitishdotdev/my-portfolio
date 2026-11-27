@@ -3,6 +3,7 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import App from "./App";
+import "./fonts.css";
 import "./index.css";
 
 const root = document.getElementById("root")!;
