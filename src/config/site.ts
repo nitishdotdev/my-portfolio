@@ -1,0 +1,206 @@
+export type Project = {
+  title: string;
+  blurb: string;
+  story?: string;
+  stack: string[];
+  year: string;
+  links: { live?: string; source?: string };
+  featured?: boolean;
+  status?: string;
+  image?: string;
+  categories?: ("Frontend" | "Backend" | "Fullstack")[];
+};
+
+export type Job = {
+  company: string;
+  role: string;
+  period: string;
+  blurb: string;
+  url?: string;
+};
+
+export type Post = {
+  title: string;
+  summary: string;
+  date: string;
+  url: string;
+  readingTime?: string;
+};
+
+export type OpenSourceContribution = {
+  title: string;
+  repo: string;
+  prNumber: number;
+  url: string;
+  status: "Merged";
+  description: string;
+  technologies: string[];
+};
+
+/*
+ * Single source of truth for portfolio content.
+ * Empty strings / empty arrays hide the related UI automatically.
+ * Only add facts that can be verified (see MY_INFO.md section 15).
+ */
+export const site = {
+  name: "Nitish Kumar Singh",
+  firstName: "Nitish",
+  initials: "NKS",
+  url: "",
+  role: "Full Stack Developer · Product Builder · CSE (AI & ML)",
+  location: "Ghaziabad, India",
+  timezone: "Asia/Kolkata",
+
+  // Leave empty until verified; the contact UI hides unset links.
+  email: "",
+
+  // Add image paths (e.g. "/profile.jpg") to enable the avatar switcher.
+  // With none set, the hero shows the initials monogram.
+  profileImages: [] as string[],
+  // Optional hero banner image. When empty, a built-in grid banner is shown.
+  bannerImage: "",
+  socialBannerImage: "/social-banner.png",
+
+  headlines: [
+    "Full Stack Developer",
+    "Product Builder",
+    "CSE (AI & ML) Student",
+  ],
+
+  about: [
+    "I am Nitish Kumar Singh, a Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning at RKGIT, Ghaziabad. I enjoy turning ideas into useful software: understanding a problem, building the product end to end, deploying it, and improving it based on how people actually use it.",
+    "My work spans modern web interfaces, backend APIs, authentication, relational databases, and deployment workflows. I have been building products such as StudyKarle, an education resource platform, and CampusBus, a college transportation platform. These projects have pushed me beyond writing isolated code into thinking about real users, permissions, reliability, product decisions, and maintenance.",
+    "I am continuing to strengthen my foundations in data structures and algorithms, backend engineering, system design, and AI/ML. I value practical execution, clean implementation, honest engineering, and products that deliver meaningful value without unnecessary cost.",
+    "I want to build products I'm proud to sell and would recommend to my family and friends, and keep them as affordable as possible.",
+  ],
+
+  tldr: [
+    "Building StudyKarle & CampusBus",
+    "Stack: React · Node.js · PostgreSQL",
+    "B.Tech CSE (AI & ML), RKGIT",
+    "Learning: System design · DSA · AI/ML",
+  ],
+
+  // Footer rotator: short personal statements.
+  quotes: [
+    {
+      text: "I build useful products, not just demos.",
+      author: "Nitish Kumar Singh",
+    },
+    {
+      text: "Build products we are proud to sell and would recommend to our family and friends, and make them available at the lowest prices possible.",
+      author: "Nitish Kumar Singh",
+    },
+  ],
+
+  socials: {
+    github: "https://github.com/nitishdotdev",
+    linkedin: "", // add exact profile URL once confirmed
+    twitter: "", // add exact profile URL if active
+    resume: "", // add once a current résumé PDF exists
+    medium: "", // no publishing platform confirmed yet
+  },
+
+  // Independent work (no formal employment confirmed in MY_INFO.md).
+  experienceTitle: "Independent Projects",
+  experience: [
+    {
+      company: "Independent",
+      role: "Developer & Product Builder",
+      period: "",
+      blurb:
+        "Building and iterating on web products, including an education resource platform and a campus transportation platform. Working across frontend interfaces, backend APIs, authentication, PostgreSQL data models, deployment, and production debugging.",
+    },
+  ] as Job[],
+
+  // Campus roles and team work, shown below the independent projects.
+  collaboration: [
+    {
+      company: "RKGIT, Ghaziabad",
+      role: "Class CR / Assignment Coordinator",
+      period: "",
+      blurb: "Served as class representative and assignment coordinator.",
+    },
+    {
+      company: "Binary Hacks 4.0 · RKGIT",
+      role: "Team Leader",
+      period: "22–24 Sep 2026",
+      blurb:
+        "Led a team to develop ArthaSetu, a concept exploring micro-investment access for gig workers.",
+      url: "https://github.com/goyaldaksh284-crypto/ArthaSetu",
+    },
+  ] as Job[],
+
+  projects: [
+    {
+      title: "StudyKarle",
+      blurb:
+        "An education resource platform for engineering students. It organizes notes, previous-year questions, solutions, assignments, and tutorials into a fast, mobile-friendly discovery experience.",
+      story:
+        "The problem: study material for engineering courses is scattered across chat groups, drives, and personal folders. StudyKarle follows the academic structure students already use (year, semester, subject, unit, and files), so resources can be found where they belong in a course.\n\nThe stack: a React and Vite frontend, a Node.js and Express API, and PostgreSQL hosted on Neon, queried with Knex.js. The frontend is deployed on Vercel and the backend on Render. It includes admin workflows for uploading and managing resources, authentication with account linking, and search across the resource hierarchy.\n\nStatus: launched and in ongoing development.",
+      stack: ["React", "Vite", "Node.js", "Express.js", "PostgreSQL", "Neon", "Knex.js", "Vercel", "Render"],
+      year: "",
+      links: {
+        live: "https://studykarle.me",
+        source: "https://github.com/nitishdotdev/StudyKarle",
+      },
+      featured: true,
+      categories: ["Fullstack", "Backend"],
+    },
+    {
+      title: "CampusBus",
+      blurb:
+        "A multi-college transport platform concept for bus tracking and route administration, designed around student, driver, and admin workflows.",
+      story:
+        "The problem: students wait at stops without knowing where their bus is, and colleges manage routes, vehicles, and drivers with little tooling. CampusBus is designed to serve multiple colleges from one platform instead of a single-campus demo.\n\nRoles: Student, Driver, and Admin. Admins create campuses, buses, routes, stops, drivers, and students and assign drivers. Driver accounts are managed by administrators, not public self-signup.\n\nDesigned for, and still in progress: driver location sharing, bus positions updated about every five seconds, map-based route views, alerts, and low-connectivity handling. These are planned or partially built and are not yet described as production features.\n\nStack: a Node.js API with PostgreSQL on Neon, deployed on Render, with a Vercel frontend. Work so far has focused on API integration, production configuration, and testing.",
+      stack: ["Node.js", "PostgreSQL", "Neon", "Render", "Vercel"],
+      year: "",
+      links: {
+        source: "https://github.com/nitishdotdev/CampusBus",
+      },
+      status: "In Development",
+      featured: false,
+      categories: ["Fullstack", "Backend"],
+    },
+    {
+      title: "StudyCanvas",
+      blurb:
+        "An earlier digital note-writing web app built around a bagless student experience. It was the first step toward StudyKarle.",
+      story:
+        "This was an early product experiment in digital note-taking. Bringing study material into one focused digital place shaped the later move toward StudyKarle's academic resource platform.",
+      stack: [],
+      year: "",
+      links: {
+        live: "https://studycanvas.me",
+      },
+      status: "Earlier Project",
+      featured: false,
+      categories: ["Frontend"],
+    },
+  ] as Project[],
+
+  // Grouped skills shown in the Tech Stack section. Only defensible skills.
+  // The "Currently Learning" group is intentionally separate.
+  skillGroups: {
+    Languages: ["JavaScript", "TypeScript", "Java", "C", "C++"],
+    Frontend: ["React", "HTML", "CSS", "Tailwind CSS", "Bootstrap"],
+    Backend: ["Node.js", "Express.js", "REST APIs", "Authentication & Authorization", "Role-Based Access Control"],
+    Databases: ["PostgreSQL", "Neon", "Knex.js"],
+    "DevOps & Tools": ["Git", "GitHub", "Vercel", "Render", "Postman"],
+    "Currently Learning": ["Python", "System Design", "DSA", "AI/ML", "Production Reliability"],
+  } as Record<string, string[]>,
+
+  // Add posts as { title, summary, date, url, readingTime }.
+  writing: [] as Post[],
+
+  // Add verified PRs as they are merged (see MY_INFO.md section 7).
+  openSourceContributions: [] as OpenSourceContribution[],
+
+  github: {
+    username: "nitishdotdev",
+  },
+
+  footerNote: "Built with care, one feature at a time.",
+} as const;
+
+export type Site = typeof site;
