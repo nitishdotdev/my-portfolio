@@ -54,11 +54,10 @@ export const site = {
   // Leave empty until verified; the contact UI hides unset links.
   email: "nitishkumarsingh.cs@gmail.com",
 
-  // Add image paths (e.g. "/profile.jpg") to enable the avatar switcher.
-  // With none set, the hero shows the initials monogram.
-  profileImages: [] as string[],
-  // Optional hero banner image. When empty, a built-in grid banner is shown.
-  bannerImage: "",
+  // Add image paths (e.g. "/images/profile2.webp") to enable the avatar switcher.
+  profileImages: ["/images/profile.webp"] as string[],
+  // Hero banner image (files live in public/images/).
+  bannerImage: "/images/banner.webp",
   socialBannerImage: "/social-banner.png",
 
   headlines: [
@@ -172,6 +171,7 @@ export const site = {
       },
       featured: true,
       categories: ["Fullstack", "Backend"],
+      image: "/project-images/studykarle.webp",
     },
     {
       title: "CampusBus",
@@ -187,6 +187,7 @@ export const site = {
       status: "In Development",
       featured: false,
       categories: ["Fullstack", "Backend"],
+      image: "/project-images/campusbus.webp",
     },
     {
       title: "StudyCanvas",
@@ -202,6 +203,7 @@ export const site = {
       status: "Earlier Project",
       featured: false,
       categories: ["Frontend"],
+      image: "/project-images/studycanvas.webp",
     },
   ] as Project[],
 
