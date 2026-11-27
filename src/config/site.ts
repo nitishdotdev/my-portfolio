@@ -89,7 +89,7 @@ export const site = {
   tldr: [
     "Building Products",
     "Stack: React · Node.js · PostgreSQL",
-    "B.Tech CSE (AI & ML), RKGIT, Shipping consistently.",
+    "Shipping consistently.",
     "Learning: System design · DSA · AI/ML",
   ],
 
