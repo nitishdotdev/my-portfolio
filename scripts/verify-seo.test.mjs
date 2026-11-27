@@ -207,6 +207,27 @@ test("a generated route that contains the homepage instead fails", () => {
   assert.ok(failures.some((message) => message.includes('/projects: expected exactly one H1, "Projects"')));
 });
 
+test("out-of-range title and description lengths fail", () => {
+  const failures = failuresWith((dir) => {
+    mutate(dir, "dist/index.html", (html) => html.replace(/<title>[^<]+<\/title>/, `<title>${"a".repeat(61)}</title>`));
+    mutate(dir, "dist/projects.html", (html) => html.replace(/name="description" content="[^"]*"/, `name="description" content="${"x".repeat(161)}"`));
+    mutate(dir, "dist/contact.html", (html) => html.replace(/name="description" content="[^"]*"/, 'name="description" content="Contact me"'));
+  }, "dist");
+  assert.ok(failures.some((message) => message.includes("/: title must be")));
+  for (const path of ["/projects", "/contact"]) {
+    assert.ok(failures.some((message) => message.includes(`${path}: description must be`)));
+  }
+});
+
+test("missing image alt and blank homepage banner alt fail", () => {
+  const failures = failuresWith((dir) => {
+    mutate(dir, "dist/index.html", (html) => html.replace(/alt="Illustrated night sky[^"]*"/, 'alt=""'));
+    mutate(dir, "dist/projects.html", (html) => html.replace(' alt="StudyKarle preview"', ""));
+  }, "dist");
+  assert.ok(failures.some((message) => message.includes("homepage banner needs descriptive alt text")));
+  assert.ok(failures.some((message) => message.includes("image /project-images/studykarle.webp is missing its alt attribute")));
+});
+
 test("duplicate H1 or JSON-LD in route output fails", () => {
   const failures = failuresWith((dir) => {
     mutate(dir, "dist/contact.html", (html) => html.replace("</main>", "<h1>Duplicate</h1></main>")

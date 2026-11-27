@@ -61,6 +61,10 @@ export function routeFile(path) {
   return path === "/" ? "index.html" : `${path.slice(1)}.html`;
 }
 
+function visibleTextLength(value = "") {
+  return [...value.replace(/&(?:[a-z]+|#\d+|#x[0-9a-f]+);/gi, "x").trim()].length;
+}
+
 function verifyRoute({ path, html, siteUrl, preview, site, titles, descriptions, ok }) {
   const { heading, pageType, body: expectedBody } = ROUTES[path];
   const url = siteUrl + path;
@@ -75,8 +79,12 @@ function verifyRoute({ path, html, siteUrl, preview, site, titles, descriptions,
     return values[0]?.[1];
   };
   const desc = meta("description");
-  check(title?.length >= 10 && !titles.has(title), "missing or duplicate title");
-  check(desc?.length >= 30 && !descriptions.has(desc), "missing or duplicate description");
+  const titleLength = visibleTextLength(title);
+  const descriptionLength = visibleTextLength(desc);
+  check(titleLength >= 10 && titleLength <= 60, "title must be 10–60 characters");
+  check(descriptionLength >= 120 && descriptionLength <= 160, "description must be 120–160 characters");
+  check(!titles.has(title), "duplicate title");
+  check(!descriptions.has(desc), "duplicate description");
   titles.add(title);
   descriptions.add(desc);
   check(canonicals.length === 1, "expected exactly one canonical link");
@@ -110,6 +118,12 @@ function verifyRoute({ path, html, siteUrl, preview, site, titles, descriptions,
 
   const headings = [...body.matchAll(/<h1\b[^>]*>([^<]+)<\/h1>/g)];
   check((html.match(/<h1\b/g) ?? []).length === 1 && headings[0]?.[1] === heading, `expected exactly one H1, "${heading}"`);
+  for (const [tag] of body.matchAll(/<img\b[^>]*>/g)) {
+    const src = tag.match(/\ssrc="([^"]*)"/)?.[1];
+    const alt = tag.match(/\salt="([^"]*)"/)?.[1];
+    check(alt !== undefined, `image ${src ?? "(unknown source)"} is missing its alt attribute`);
+    if (src === "/images/banner.webp") check(alt?.trim(), "homepage banner needs descriptive alt text");
+  }
   for (const phrase of expectedBody) check(body.includes(phrase), `initial main content missing "${phrase}"`);
   check(!/localhost|127\.0\.0\.1|-git-|\.vercel\.app/.test(head.replaceAll(new URL(siteUrl).hostname, "")), "non-production host in metadata");
 

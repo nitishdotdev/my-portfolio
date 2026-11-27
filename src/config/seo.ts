@@ -18,32 +18,32 @@ export type RouteSeo = {
 /** Indexable routes and their metadata. Keep descriptions consistent with visible page content. */
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {
-    title: "Nitish Kumar Singh (nitishdotdev) | Full-Stack Developer & Product Builder",
+    title: "Nitish Kumar Singh | Full-Stack Developer",
     description:
-      "Nitish Kumar Singh (nitishdotdev) is a full-stack developer and product builder based in Delhi, India, building practical software with React, TypeScript, Node.js and PostgreSQL.",
+      "Nitish Kumar Singh (nitishdotdev) is a full-stack developer in Delhi building web products with React, TypeScript, Node.js, and PostgreSQL.",
     indexable: true,
   },
   "/projects": {
     title: "Projects | Nitish Kumar Singh (nitishdotdev)",
     description:
-      "Projects by Nitish Kumar Singh, including StudyKarle, an education resource platform for engineering students, and CampusBus, a campus transport platform in development.",
+      "Explore StudyKarle, an education resource platform, CampusBus, a campus transport project, and StudyCanvas, a digital note-taking app.",
     indexable: true,
   },
   "/experience": {
     title: "Experience | Nitish Kumar Singh (nitishdotdev)",
     description:
-      "Independent product-building work by Nitish Kumar Singh (nitishdotdev), a full-stack developer based in Delhi, India.",
+      "Explore Nitish Kumar Singh’s independent product work across React interfaces, Node.js APIs, authentication, PostgreSQL data models, and deployment.",
     indexable: true,
   },
   "/contact": {
     title: "Contact | Nitish Kumar Singh (nitishdotdev)",
     description:
-      "How to contact Nitish Kumar Singh (nitishdotdev), a full-stack developer based in Delhi, India.",
+      "Contact Nitish Kumar Singh, a full-stack developer in Delhi, India. Get in touch by email or find him on GitHub and LinkedIn.",
     indexable: true,
   },
   "/writing": {
     title: "Writing | Nitish Kumar Singh (nitishdotdev)",
-    description: "Technical writing by Nitish Kumar Singh (nitishdotdev).",
+    description: "Writing and thoughts from Nitish Kumar Singh on software architecture, system design, and engineering lessons. Published articles will appear here.",
     // Currently an empty "No articles yet" page. Switch to true once real posts exist.
     indexable: false,
   },

@@ -59,6 +59,7 @@ export const site = {
   profileImages: ["/images/profile.webp"] as string[],
   // Hero banner image (files live in public/images/).
   bannerImage: "/images/banner.webp",
+  bannerImageAlt: "Illustrated night sky with swirling blue clouds and yellow stars over a village",
   bannerImageSources: ["/images/banner-768.webp 768w", "/images/banner-1152.webp 1152w", "/images/banner.webp 1600w"],
   socialBannerImage: "/social-banner.png",
 
