@@ -18,11 +18,7 @@
   "headers": [
     {
       "source": "/writing",
-      "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/:route(projects|experience|contact|writing).html", "destination": "/:route", "permanent": true }
-  ],
-  "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
     }
   ]
 }
