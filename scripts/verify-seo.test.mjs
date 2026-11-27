@@ -243,12 +243,22 @@ test("built routes and assets work via HTTP, and unknown URLs return 404", async
       }
       const missing = await fetch(new URL("/nonexistent-seo-verification-route", base));
       assert.equal(missing.status, 404);
-      const image = await fetch(new URL("/social-banner.png", base));
-      assert.equal(image.status, 200);
-      assert.match(image.headers.get("content-type"), /image\/png/);
+      await missing.arrayBuffer();
+      for (const [path, mime] of [
+        ["/social-banner.png", "image/png"],
+        ["/images/banner-768.webp", "image/webp"],
+        ["/images/banner-1152.webp", "image/webp"],
+        ["/fonts/instrument-serif/normal-latin.woff2", "font/woff2"],
+        ["/fonts/jetbrains-mono/latin.woff2", "font/woff2"],
+      ]) {
+        const asset = await fetch(new URL(path, base));
+        assert.equal(asset.status, 200, path);
+        assert.ok(asset.headers.get("content-type")?.startsWith(mime), path);
+        await asset.arrayBuffer();
+      }
       const sitemap = await fetch(new URL("/sitemap.xml", base));
       assert.equal(sitemap.status, env === "preview" ? 404 : 200);
-      for (const response of [missing, image, sitemap]) await response.arrayBuffer();
+      await sitemap.arrayBuffer();
     } finally {
       await new Promise((resolve, reject) => server.httpServer.close((error) => error ? reject(error) : resolve()));
     }

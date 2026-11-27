@@ -64,6 +64,8 @@ export function ProjectCard({ project: p, index = 0 }: { project: Project; index
               <img
                 src={p.image}
                 alt={`${p.title} preview`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-top"
                 onError={() => setImgError(true)}
               />

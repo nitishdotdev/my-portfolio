@@ -71,7 +71,7 @@ Routes: `/` (home), `/projects`, `/experience`, `/contact`, `/writing`.
 ## Fonts
 
 Display serif: **Instrument Serif** · Body: **Aileron** · Labels: **JetBrains Mono**.
-Instrument Serif and JetBrains Mono load from Google Fonts under the SIL Open Font License.
+The Google Fonts distributions of Instrument Serif and JetBrains Mono are served locally under their [Instrument Serif OFL](public/fonts/instrument-serif/OFL.txt) and [JetBrains Mono OFL](public/fonts/jetbrains-mono/OFL.txt).
 [Aileron](https://dotcolon.net/font/aileron/) is served locally under [CC0](public/fonts/aileron/LICENSE.txt).
 
 ## Deployment (Vercel)
